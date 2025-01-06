@@ -9,6 +9,7 @@ import {
 
 const Home = () => {
     const router = useRouter();
+    const [searchTerm, setSearchTerm] = useState("");
 
     return (
         <SafeAreaView style = {{flex: 1, backgroundColor: COLORS.lightwhite}}>
@@ -33,7 +34,15 @@ const Home = () => {
                         padding: SIZES.medium
                     }}
                 >
-                    <Welcome 
+                    <Welcome
+                        search = {searchTerm}
+                        setSearch = {setSearchTerm}
+                        handleClick = {() => {
+                            if(searchTerm) {
+                                router.push(`/search/${searchTerm}`)
+                            }
+                        }}
+                        
                     
                     />
 
